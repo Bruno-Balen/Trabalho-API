@@ -36,11 +36,26 @@ function deleteLivro(req, res) {
         return res.status(500).json({erro: 'Erro ao excluir livro'});
     }
 
-    return res.status(204);
+    return res.status(204).send();
+}
+
+function patchLivro(req, res) {
+    const livro = req.body;
+
+    if (!servico.getLivroPorId(req.params.id)) {
+        return res.status(404).json({erro: `Livro com o código ${req.params.id} não encontrado`});
+    }
+
+    if (!servico.patchLivro(req.params.id, livro)) {
+        return res.status(500).json({erro: 'Erro ao atualizar livro'});
+    }
+
+    return res.status(204).send();
 }
 
 module.exports = {
     getLivros, 
     getLivroPorId,
     postLivro,
-    deleteLivro};
+    deleteLivro,
+    patchLivro};

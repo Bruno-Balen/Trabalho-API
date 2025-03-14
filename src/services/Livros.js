@@ -30,8 +30,20 @@ function deleteLivro(id){
     return true;
 };
 
+function patchLivro(id, livro){
+    const livroAtual = getLivroPorId(id);
+    if (!livroAtual) {
+        return false;
+    }
+
+    const index = Livros.indexOf(livroAtual);
+    Livros[index] = {...livroAtual, ...livro};
+    return true;
+};
+
 module.exports = {
     getLivros, 
     getLivroPorId, 
     postLivro,
-    deleteLivro};
+    deleteLivro,
+    patchLivro};

@@ -5,4 +5,5 @@ module.exports = (app) => {
     app.get('/livros/:id([0-9]+)', controllers.getLivroPorId);
     app.post('/livros', controllers.postLivro);
     app.delete('/livros/:id([0-9]+)', controllers.deleteLivro);
+    app.patch('/livros/:id([0-9]+)', controllers.patchLivro);
 }
