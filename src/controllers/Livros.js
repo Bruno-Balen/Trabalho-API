@@ -23,6 +23,7 @@ function postLivro(req, res) {
     }
 
     servico.postLivro(livro);
+
     res.status(201).json(livro);
 }
 
@@ -35,7 +36,7 @@ function deleteLivro(req, res) {
         return res.status(500).json({erro: 'Erro ao excluir livro'});
     }
 
-    return res.status(204).json({mensagem: 'Livro excluído com sucesso'});
+    return res.status(204);
 }
 
 module.exports = {
