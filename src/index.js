@@ -4,6 +4,7 @@ const PORT = 3001;
 
 app.use(express.json());
 
+//faz o require do arquivo routes.js
 require('./routes')(app);
 
 //mostra a mensagem de que o servidor está rodando
